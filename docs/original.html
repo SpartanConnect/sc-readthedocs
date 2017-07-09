@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Structures &mdash; Spartan Connect 0.1.0 documentation</title>
+  <title>API URL &mdash; Spartan Connect 0.1.0 documentation</title>
   
 
   
@@ -35,7 +35,8 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Spartan Connect 0.1.0 documentation" href="index.html"/> 
+    <link rel="top" title="Spartan Connect 0.1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Introduction" href="intro.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -82,16 +83,33 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="routes.html">List of API Routes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="announcements.html">Announcements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tags.html">Tags</a></li>
-<li class="toctree-l1"><a class="reference internal" href="users.html">Users</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="users.html#authentication">Authentication</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#list-of-api-routes">List of API Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#data-structures">Data Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#announcement">Announcement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tag">Tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user">User</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#event">Event</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#responses">Responses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#response">Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#announcementresponse">AnnouncementResponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eventresponse">EventResponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tagresponse">TagResponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updateresponse">UpdateResponse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#links">Links</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#announcements-get">announcements/ (GET)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#announcements-post">announcements/ (POST)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#announcements-id-get">announcements/:id (GET)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#announcements-id-post">announcements/:id (POST)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#users-login">users/login</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -136,7 +154,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Data Structures</li>
+      <li>API URL</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -155,9 +173,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>Link to API: connect.lchsspartans.net/api/</p>
+  <div class="section" id="api-url">
+<h1>API URL<a class="headerlink" href="#api-url" title="Permalink to this headline">¶</a></h1>
+<p>Link to API: connect.lchsspartans.net/api/</p>
 <p>(or api.connect.lchsspartans.net?)</p>
-<p>REST Links</p>
+</div>
+<div class="section" id="list-of-api-routes">
+<h1>List of API Routes<a class="headerlink" href="#list-of-api-routes" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
@@ -173,9 +195,8 @@
 <tbody valign="top">
 <tr class="row-even"><td>announcements/</td>
 <td>GET</td>
-<td><p class="first">Retrieves all announcements.</p>
-<p class="last">Additional Parameters: startDate, endDate, quantity</p>
-</td>
+<td>Retrieves all announcements.
+Additional Parameters: startDate, endDate, quantity</td>
 </tr>
 <tr class="row-odd"><td>announcements/current</td>
 <td>GET</td>
@@ -251,6 +272,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <div class="section" id="data-structures">
 <h1>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="announcement">
@@ -260,11 +282,7 @@
 <ul class="simple">
 <li>id: unique id for the announcement, same as that in the db</li>
 <li>title (alias: name): the title line, pretty straight forward</li>
-<li><dl class="first docutils">
-<dt>description: a string with the complete description for the</dt>
-<dd>announcement (basically the body)</dd>
-</dl>
-</li>
+<li>description: a string with the complete description for the announcement (basically the body)</li>
 <li>creator (alias: author, user): the user object of the creator</li>
 <li>approver: a user object that describes who approved an announcement</li>
 <li>startDate: the first day that the announcement is displayed</li>
@@ -278,53 +296,23 @@
 </ul>
 </li>
 <li>timeSubmitted: The datetime of when the announcement was submitted</li>
-<li><dl class="first docutils">
-<dt>tags: (Tags[]): Returns an array of tag objects applied to the</dt>
-<dd>announcement</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>events: (Events[]): Returns an array of event objects applied to the</dt>
-<dd>announcement</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>deadlines: (Deadlines[]): Returns an array of the deadlines that are</dt>
-<dd>attached to the announcement</dd>
-</dl>
-</li>
+<li>tags: (Tags[]): Returns an array of tag objects applied to the announcement</li>
+<li>events: (Events[]): Returns an array of event objects applied to the announcement</li>
+<li>deadlines: (Deadlines[]): Returns an array of the deadlines that are attached to the announcement</li>
 </ul>
 </div>
 <div class="section" id="tag">
 <h2>Tag<a class="headerlink" href="#tag" title="Permalink to this headline">¶</a></h2>
-<p>A tag object</p>
+<p>A tag object.</p>
 <p>Properties:</p>
 <ul class="simple">
 <li>id: unique ID for the applied tag</li>
 <li>name: display name for tag</li>
 <li>slug: the technical name for the tag</li>
-<li><dl class="first docutils">
-<dt>visible: single bit: whether the tag is visible when the announcement</dt>
-<dd>is displayed</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>minUserLevelAssign: single digit int: the minimum level that the user</dt>
-<dd>must be to be able to assign or approve the assignment of this
-tag</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>minUserLevelRequest: single digit int: the minimum level that the</dt>
-<dd>user must be to be to request that his/her announcement be
-assigned this tag</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>parentId (alias: parentID) if the tag is a child of another tag, the</dt>
-<dd>ID of the parent is put here, likely null for the moment</dd>
-</dl>
-</li>
+<li>visible: single bit: whether the tag is visible when the announcement is displayed</li>
+<li>minUserLevelAssign: single digit int: the minimum level that the user must be to be able to assign or approve the assignment of this tag</li>
+<li>minUserLevelRequest: single digit int: the minimum level that the user must be to be to request that his/her announcement be assigned this tag</li>
+<li>parentId (alias: parentID) if the tag is a child of another tag, the ID of the parent is put here, likely null for the moment</li>
 <li>isCritical: boolean that states whether the tag can be modified</li>
 </ul>
 </div>
@@ -366,7 +354,7 @@ a power level less than our equal to their own. if a user has a rank of
 <li>total: int of total number of announcements</li>
 </ul>
 </li>
-<li>lastLogin:</li>
+<li>lastLogin: a timestamp of when the user last logged in</li>
 </ul>
 </div>
 <div class="section" id="event">
@@ -378,11 +366,7 @@ a power level less than our equal to their own. if a user has a rank of
 <li>title (alias: name): the title line of the event</li>
 <li>description: the description of the event</li>
 <li>announcementID the announcement ID of which the event is a child<ul>
-<li><dl class="first docutils">
-<dt>announcement: the announcement parent with the id of the above</dt>
-<dd>announcementId</dd>
-</dl>
-</li>
+<li>announcement: the announcement parent with the id of the above announcementId</li>
 </ul>
 </li>
 <li>allDay: single bit determining whether the event is all day or not</li>
@@ -391,6 +375,9 @@ a power level less than our equal to their own. if a user has a rank of
 <li>endTime: the end time of the event</li>
 </ul>
 </div>
+</div>
+<div class="section" id="responses">
+<h1>Responses<a class="headerlink" href="#responses" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="response">
 <h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
 <p>The response that is returned by the server from any endpoint.</p>
@@ -406,11 +393,7 @@ a power level less than our equal to their own. if a user has a rank of
 requested.</p>
 <p>Properties:</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>response: announcement []: an array of announcement objects which are</dt>
-<dd>the actual announcements that are returned</dd>
-</dl>
-</li>
+<li>response: announcement []: an array of announcement objects which are the actual announcements that are returned</li>
 <li>All Response properties</li>
 </ul>
 </div>
@@ -420,11 +403,7 @@ requested.</p>
 <p>The response that is returned by the server when events are requested.</p>
 <p>Properties:</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>response: event []: an array of event objects which are the actual</dt>
-<dd>events that are returned</dd>
-</dl>
-</li>
+<li>response: event []: an array of event objects which are the actual events that are returned</li>
 <li>All Response properties</li>
 </ul>
 </div>
@@ -434,17 +413,12 @@ requested.</p>
 <p>The response that is returned by the server when tags are requested.</p>
 <p>Properties:</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>response: tag []: an array of tag objects which are the actual tags</dt>
-<dd>that are returned</dd>
-</dl>
-</li>
+<li>response: tag []: an array of tag objects which are the actual tags that are returned</li>
 <li>All Response properties</li>
 </ul>
 </div>
-</div>
 <div class="section" id="updateresponse">
-<h1>UpdateResponse<a class="headerlink" href="#updateresponse" title="Permalink to this headline">¶</a></h1>
+<h2>UpdateResponse<a class="headerlink" href="#updateresponse" title="Permalink to this headline">¶</a></h2>
 <p>(inherits Response)</p>
 <p>The response the is returned by the server when a POST is sent.</p>
 <ul class="simple">
@@ -452,35 +426,43 @@ requested.</p>
 <li>response: returns true for success, false for error</li>
 </ul>
 </div>
+</div>
 <div class="section" id="links">
 <h1>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h1>
-<p>announcements/ (GET)</p>
+<div class="section" id="announcements-get">
+<h2>announcements/ (GET)<a class="headerlink" href="#announcements-get" title="Permalink to this headline">¶</a></h2>
 <p>Returns an AnnouncementResponse which returns all current announcements.</p>
-<p>if a quantity is given, that number of announcements is returned</p>
-<p>if a tagId is given, a list of announcement objects with that tag will
-be returned in the array</p>
-<p>if start and end dates are added, only announcements visible between the
-two dates (exclusive) are returned</p>
-<p>announcements (POST)</p>
+<ul class="simple">
+<li>if a quantity is given, that number of announcements is returned</li>
+<li>if a tagId is given, a list of announcement objects with that tag will be returned in the array</li>
+<li>if start and end dates are added, only announcements visible between the two dates (exclusive) are returned</li>
+</ul>
+</div>
+<div class="section" id="announcements-post">
+<h2>announcements/ (POST)<a class="headerlink" href="#announcements-post" title="Permalink to this headline">¶</a></h2>
 <p>Web app sends server a json announcement object, with a null id. Returns
 an UpdateResponse.</p>
-<p>Required: title, description, startDate, endDate, tags (ids or slugs)</p>
+<p>(Required: title, description, startDate, endDate, tags (ids or slugs))</p>
 <p>Assumed: userId</p>
 <p>Optional: events</p>
-<p>announcements/:id (GET)</p>
+</div>
+<div class="section" id="announcements-id-get">
+<h2>announcements/:id (GET)<a class="headerlink" href="#announcements-id-get" title="Permalink to this headline">¶</a></h2>
 <p>Gets an AnnouncementResponse with the announcement by id.</p>
-<p>announcements/:id (POST)</p>
+</div>
+<div class="section" id="announcements-id-post">
+<h2>announcements/:id (POST)<a class="headerlink" href="#announcements-id-post" title="Permalink to this headline">¶</a></h2>
 <p>Web app sends server a list of announcement properties and updated
 values. Returns an UpdateResponse.</p>
 <p>Optional: title, description, startDate, endDate</p>
 <p>Elevation Required: approved, urgent</p>
-<p>For updating events or tags, use the POST methods for
-/announcements/:id/events or /announcements/:id/tags. These often have
-an addXxxx/removeXxxx property to pass in that is an array of tag/event
-ids.</p>
-<p>users/login</p>
+<p>For updating events or tags, use the POST methods for /announcements/:id/events or /announcements/:id/tags. These often have an addXxxx/removeXxxx property to pass in that is an array of tag/event ids.</p>
+</div>
+<div class="section" id="users-login">
+<h2>users/login<a class="headerlink" href="#users-login" title="Permalink to this headline">¶</a></h2>
 <p>Logs in a user (or creates one if the email is not used before) based on
-the one-time token given</p>
+the one-time token given.</p>
+</div>
 </div>
 
 
@@ -490,6 +472,13 @@ the one-time token given</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

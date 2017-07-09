@@ -8,9 +8,4 @@ develop using our REST API.
    :caption: Contents:
 
    intro
-   routes
-   announcements
-   tags
-   users
-   events
    Original API Spec <original>
