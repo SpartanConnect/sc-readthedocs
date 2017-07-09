@@ -59,6 +59,7 @@ Announcement
 An announcement object.
 
 Properties:
+
 -  id: unique id for the announcement, same as that in the db
 -  title (alias: name): the title line, pretty straight forward
 -  description: a string with the complete description for the announcement (basically the body)
@@ -85,6 +86,7 @@ Tag
 A tag object.
 
 Properties:
+
 -  id: unique ID for the applied tag
 -  name: display name for tag
 -  slug: the technical name for the tag
@@ -104,6 +106,7 @@ a power level less than our equal to their own. if a user has a rank of
 1, they can set any user to level 0.
 
 Properties:
+
 -  id: number a unique id for the user
 -  name: the name of the user
 -  handle: the username of the user
@@ -131,6 +134,7 @@ Event
 An event object (to be implemented)
 
 Properties:
+
 -  id: a unique id of the event
 -  title (alias: name): the title line of the event
 -  description: the description of the event
@@ -152,6 +156,7 @@ Response
 The response that is returned by the server from any endpoint.
 
 Properties:
+
 -  success: boolean returns true if successful, false if not
 -  error: string
 
@@ -164,6 +169,7 @@ The response that is returned by the server when announcements are
 requested.
 
 Properties:
+
 -  response: announcement []: an array of announcement objects which are the actual announcements that are returned
 -  All Response properties
 
@@ -173,6 +179,7 @@ EventResponse
 The response that is returned by the server when events are requested.
 
 Properties:
+
 -  response: event []: an array of event objects which are the actual events that are returned
 -  All Response properties
 
@@ -182,6 +189,7 @@ TagResponse
 The response that is returned by the server when tags are requested.
 
 Properties:
+
 -  response: tag []: an array of tag objects which are the actual tags that are returned
 -  All Response properties
 
@@ -191,6 +199,7 @@ UpdateResponse
 The response the is returned by the server when a POST is sent.
 
 Properties:
+
 -  affectedRows: returns the number of affected rows
 -  response: returns true for success, false for error
 
