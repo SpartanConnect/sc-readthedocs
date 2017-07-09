@@ -13,4 +13,4 @@ develop using our REST API.
    tags
    users
    events
-   original <Original API Spec>
+   Original API Spec <original>
