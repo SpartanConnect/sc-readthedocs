@@ -59,7 +59,6 @@ Announcement
 An announcement object.
 
 Properties:
-
 -  id: unique id for the announcement, same as that in the db
 -  title (alias: name): the title line, pretty straight forward
 -  description: a string with the complete description for the announcement (basically the body)
@@ -86,7 +85,6 @@ Tag
 A tag object.
 
 Properties:
-
 -  id: unique ID for the applied tag
 -  name: display name for tag
 -  slug: the technical name for the tag
@@ -105,19 +103,17 @@ if a user has a rank higher than 1, they can change any email or user to
 a power level less than our equal to their own. if a user has a rank of
 1, they can set any user to level 0.
 
+Properties:
 -  id: number a unique id for the user
 -  name: the name of the user
 -  handle: the username of the user
 -  email: the email of the user
 -  rank: a single digit integer indicating the user’s permissions
 
-   -  3: teacher: submit announcements, edit their own existing
-          announcements
-   -  2: admin: teacher perms+approve/deny submitted announcements, edit
-          any announcement, set urgent tag at will
+   -  3: teacher: submit announcements, edit their own existing announcements
+   -  2: admin: teacher perms+approve/deny submitted announcements, edit any announcement, set urgent tag at will
    -  1: superAdmin: admin perms+ability to set emergency tag
-   -  0: maintenanceUser: superAdmin perms+maintenance panel w/
-          diagnostics, and direct sql access (hopefully), making tags
+   -  0: maintenanceUser: superAdmin perms+maintenance panel w/ diagnostics, and direct sql access (hopefully), making tags
 
 -  postCounts: object with number of posts that the user has made
 
@@ -135,7 +131,6 @@ Event
 An event object (to be implemented)
 
 Properties:
-
 -  id: a unique id of the event
 -  title (alias: name): the title line of the event
 -  description: the description of the event
@@ -156,6 +151,7 @@ Response
 
 The response that is returned by the server from any endpoint.
 
+Properties:
 -  success: boolean returns true if successful, false if not
 -  error: string
 
@@ -168,41 +164,33 @@ The response that is returned by the server when announcements are
 requested.
 
 Properties:
-
 -  response: announcement []: an array of announcement objects which are the actual announcements that are returned
 -  All Response properties
 
 EventResponse
 -------------
-
 (inherits Response)
-
 The response that is returned by the server when events are requested.
 
 Properties:
-
 -  response: event []: an array of event objects which are the actual events that are returned
 -  All Response properties
 
 TagResponse
 -----------
-
 (inherits Response)
-
 The response that is returned by the server when tags are requested.
 
 Properties:
-
 -  response: tag []: an array of tag objects which are the actual tags that are returned
 -  All Response properties
 
 UpdateResponse
 --------------
-
 (inherits Response)
-
 The response the is returned by the server when a POST is sent.
 
+Properties:
 -  affectedRows: returns the number of affected rows
 -  response: returns true for success, false for error
 
@@ -222,11 +210,9 @@ announcements/ (POST)
 Web app sends server a json announcement object, with a null id. Returns
 an UpdateResponse.
 
-(Required: title, description, startDate, endDate, tags (ids or slugs))
-
-Assumed: userId
-
-Optional: events
+-  Required: title, description, startDate, endDate, tags (ids or slugs)
+-  Assumed: userId
+-  Optional: events
 
 announcements/:id (GET)
 -----------------------
@@ -237,9 +223,8 @@ announcements/:id (POST)
 Web app sends server a list of announcement properties and updated
 values. Returns an UpdateResponse.
 
-Optional: title, description, startDate, endDate
-
-Elevation Required: approved, urgent
+-  Optional: title, description, startDate, endDate
+-  Elevation Required: approved, urgent
 
 For updating events or tags, use the POST methods for /announcements/:id/events or /announcements/:id/tags. These often have an addXxxx/removeXxxx property to pass in that is an array of tag/event ids.
 
