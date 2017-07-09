@@ -278,25 +278,23 @@ Additional Parameters: startDate, endDate, quantity</td>
 <div class="section" id="announcement">
 <h2>Announcement<a class="headerlink" href="#announcement" title="Permalink to this headline">¶</a></h2>
 <p>An announcement object.</p>
-<p>Properties:
--  id: unique id for the announcement, same as that in the db
--  title (alias: name): the title line, pretty straight forward
--  description: a string with the complete description for the announcement (basically the body)
--  creator (alias: author, user): the user object of the creator
--  approver: a user object that describes who approved an announcement
--  startDate: the first day that the announcement is displayed
--  endDate: the last day the announcement is displayed
--  urgent: whether or not the announcement is urgent or not
--  approved: a single digit integer displaying its approval status</p>
-<blockquote>
-<div><ul class="simple">
+<p>Properties:</p>
+<ul class="simple">
+<li>id: unique id for the announcement, same as that in the db</li>
+<li>title (alias: name): the title line, pretty straight forward</li>
+<li>description: a string with the complete description for the announcement (basically the body)</li>
+<li>creator (alias: author, user): the user object of the creator</li>
+<li>approver: a user object that describes who approved an announcement</li>
+<li>startDate: the first day that the announcement is displayed</li>
+<li>endDate: the last day the announcement is displayed</li>
+<li>urgent: whether or not the announcement is urgent or not</li>
+<li>approved: a single digit integer displaying its approval status<ul>
 <li>0: pending approval</li>
 <li>1: approved</li>
 <li>2: denied by admin</li>
 <li>3: removed by author</li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</li>
 <li>timeSubmitted: The datetime of when the announcement was submitted</li>
 <li>tags: (Tags[]): Returns an array of tag objects applied to the announcement</li>
 <li>events: (Events[]): Returns an array of event objects applied to the announcement</li>
@@ -306,15 +304,17 @@ Additional Parameters: startDate, endDate, quantity</td>
 <div class="section" id="tag">
 <h2>Tag<a class="headerlink" href="#tag" title="Permalink to this headline">¶</a></h2>
 <p>A tag object.</p>
-<p>Properties:
--  id: unique ID for the applied tag
--  name: display name for tag
--  slug: the technical name for the tag
--  visible: single bit: whether the tag is visible when the announcement is displayed
--  minUserLevelAssign: single digit int: the minimum level that the user must be to be able to assign or approve the assignment of this tag
--  minUserLevelRequest: single digit int: the minimum level that the user must be to be to request that his/her announcement be assigned this tag
--  parentId (alias: parentID) if the tag is a child of another tag, the ID of the parent is put here, likely null for the moment
--  isCritical: boolean that states whether the tag can be modified</p>
+<p>Properties:</p>
+<ul class="simple">
+<li>id: unique ID for the applied tag</li>
+<li>name: display name for tag</li>
+<li>slug: the technical name for the tag</li>
+<li>visible: single bit: whether the tag is visible when the announcement is displayed</li>
+<li>minUserLevelAssign: single digit int: the minimum level that the user must be to be able to assign or approve the assignment of this tag</li>
+<li>minUserLevelRequest: single digit int: the minimum level that the user must be to be to request that his/her announcement be assigned this tag</li>
+<li>parentId (alias: parentID) if the tag is a child of another tag, the ID of the parent is put here, likely null for the moment</li>
+<li>isCritical: boolean that states whether the tag can be modified</li>
+</ul>
 </div>
 <div class="section" id="user">
 <h2>User<a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h2>
@@ -322,21 +322,19 @@ Additional Parameters: startDate, endDate, quantity</td>
 <p>if a user has a rank higher than 1, they can change any email or user to
 a power level less than our equal to their own. if a user has a rank of
 1, they can set any user to level 0.</p>
-<p>Properties:
--  id: number a unique id for the user
--  name: the name of the user
--  handle: the username of the user
--  email: the email of the user
--  rank: a single digit integer indicating the user’s permissions</p>
-<blockquote>
-<div><ul class="simple">
+<p>Properties:</p>
+<ul class="simple">
+<li>id: number a unique id for the user</li>
+<li>name: the name of the user</li>
+<li>handle: the username of the user</li>
+<li>email: the email of the user</li>
+<li>rank: a single digit integer indicating the user’s permissions<ul>
 <li>3: teacher: submit announcements, edit their own existing announcements</li>
 <li>2: admin: teacher perms+approve/deny submitted announcements, edit any announcement, set urgent tag at will</li>
 <li>1: superAdmin: admin perms+ability to set emergency tag</li>
 <li>0: maintenanceUser: superAdmin perms+maintenance panel w/ diagnostics, and direct sql access (hopefully), making tags</li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</li>
 <li>postCounts: object with number of posts that the user has made<ul>
 <li>approved: int of number of approved announcements</li>
 <li>unapproved: int of number of unapproved announcements</li>
@@ -351,17 +349,15 @@ a power level less than our equal to their own. if a user has a rank of
 <div class="section" id="event">
 <h2>Event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h2>
 <p>An event object (to be implemented)</p>
-<p>Properties:
--  id: a unique id of the event
--  title (alias: name): the title line of the event
--  description: the description of the event
--  announcementID the announcement ID of which the event is a child</p>
-<blockquote>
-<div><ul class="simple">
+<p>Properties:</p>
+<ul class="simple">
+<li>id: a unique id of the event</li>
+<li>title (alias: name): the title line of the event</li>
+<li>description: the description of the event</li>
+<li>announcementID the announcement ID of which the event is a child<ul>
 <li>announcement: the announcement parent with the id of the above announcementId</li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</li>
 <li>allDay: single bit determining whether the event is all day or not</li>
 <li>date: the date of the event.</li>
 <li>startTime: the start time of the event</li>
@@ -383,33 +379,41 @@ a power level less than our equal to their own. if a user has a rank of
 <p>(inherits Response)</p>
 <p>The response that is returned by the server when announcements are
 requested.</p>
-<p>Properties:
--  response: announcement []: an array of announcement objects which are the actual announcements that are returned
--  All Response properties</p>
+<p>Properties:</p>
+<ul class="simple">
+<li>response: announcement []: an array of announcement objects which are the actual announcements that are returned</li>
+<li>All Response properties</li>
+</ul>
 </div>
 <div class="section" id="eventresponse">
 <h2>EventResponse<a class="headerlink" href="#eventresponse" title="Permalink to this headline">¶</a></h2>
 <p>(inherits Response)
 The response that is returned by the server when events are requested.</p>
-<p>Properties:
--  response: event []: an array of event objects which are the actual events that are returned
--  All Response properties</p>
+<p>Properties:</p>
+<ul class="simple">
+<li>response: event []: an array of event objects which are the actual events that are returned</li>
+<li>All Response properties</li>
+</ul>
 </div>
 <div class="section" id="tagresponse">
 <h2>TagResponse<a class="headerlink" href="#tagresponse" title="Permalink to this headline">¶</a></h2>
 <p>(inherits Response)
 The response that is returned by the server when tags are requested.</p>
-<p>Properties:
--  response: tag []: an array of tag objects which are the actual tags that are returned
--  All Response properties</p>
+<p>Properties:</p>
+<ul class="simple">
+<li>response: tag []: an array of tag objects which are the actual tags that are returned</li>
+<li>All Response properties</li>
+</ul>
 </div>
 <div class="section" id="updateresponse">
 <h2>UpdateResponse<a class="headerlink" href="#updateresponse" title="Permalink to this headline">¶</a></h2>
 <p>(inherits Response)
 The response the is returned by the server when a POST is sent.</p>
-<p>Properties:
--  affectedRows: returns the number of affected rows
--  response: returns true for success, false for error</p>
+<p>Properties:</p>
+<ul class="simple">
+<li>affectedRows: returns the number of affected rows</li>
+<li>response: returns true for success, false for error</li>
+</ul>
 </div>
 </div>
 <div class="section" id="links">
