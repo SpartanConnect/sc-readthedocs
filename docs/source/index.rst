@@ -10,6 +10,7 @@ Spartan Connect Documentation
    :maxdepth: 2
    :caption: Contents:
 
+   routes
 
 
 Indices and tables
