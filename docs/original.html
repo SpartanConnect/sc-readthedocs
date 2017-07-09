@@ -1,0 +1,549 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data Structures &mdash; Spartan Connect 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Spartan Connect 0.1.0 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Spartan Connect
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="routes.html">List of API Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="announcements.html">Announcements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tags.html">Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="users.html">Users</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="users.html#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Spartan Connect</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Data Structures</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/original.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>Link to API: connect.lchsspartans.net/api/</p>
+<p>(or api.connect.lchsspartans.net?)</p>
+<p>REST Links</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="4%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Link</th>
+<th class="head">Method</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>announcements/</td>
+<td>GET</td>
+<td><p class="first">Retrieves all announcements.</p>
+<p class="last">Additional Parameters: startDate, endDate, quantity</p>
+</td>
+</tr>
+<tr class="row-odd"><td>announcements/current</td>
+<td>GET</td>
+<td>Retrieves all current announcements</td>
+</tr>
+<tr class="row-even"><td>announcements/</td>
+<td>POST</td>
+<td>Creates an announcement with given POST information.</td>
+</tr>
+<tr class="row-odd"><td>announcements/:id/</td>
+<td>POST</td>
+<td>Updates an announcement with given POST information.</td>
+</tr>
+<tr class="row-even"><td>announcements/:id/</td>
+<td>GET</td>
+<td>Retrieves information on a certain announcement with given ID.</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>announcement/:id/events, tags, and deadlines are not included as they are already part of the announcement object</td>
+</tr>
+<tr class="row-even"><td>tags/</td>
+<td>GET</td>
+<td>Retrieves all tags.</td>
+</tr>
+<tr class="row-odd"><td>tags/:id/</td>
+<td>GET</td>
+<td>Retrieve information on a certain tag with given ID.</td>
+</tr>
+<tr class="row-even"><td>tags/:id/announcements</td>
+<td>GET</td>
+<td>Retrieves a list of announcements with a certain tag id</td>
+</tr>
+<tr class="row-odd"><td>events/</td>
+<td>GET</td>
+<td>Retrieves all events.</td>
+</tr>
+<tr class="row-even"><td>events/:id/</td>
+<td>GET</td>
+<td>Retrieve information on a certain event with given ID.</td>
+</tr>
+<tr class="row-odd"><td>users/</td>
+<td>GET</td>
+<td>(locked to one or lower) Returns a list of all users.</td>
+</tr>
+<tr class="row-even"><td>users/:id</td>
+<td>GET</td>
+<td>(locked to one or lower) Returns information on user with specific ID</td>
+</tr>
+<tr class="row-odd"><td>users/:id</td>
+<td>POST</td>
+<td>(locked to level zero or the user) Modifies user information.</td>
+</tr>
+<tr class="row-even"><td>users/:id/announcements</td>
+<td>GET</td>
+<td>Gets all announcements from a given user.</td>
+</tr>
+<tr class="row-odd"><td>users/:id/notifications</td>
+<td>GET</td>
+<td>(locked to level zero or the user) Returns the notifications of the user.</td>
+</tr>
+<tr class="row-even"><td>users/login</td>
+<td>POST</td>
+<td>Authorize a Google account, taking in a one time code sent after the frontend contacts Google. Returns false and a consent url if the login was not valid or there was no data sent.</td>
+</tr>
+<tr class="row-odd"><td>users/login</td>
+<td>GET</td>
+<td>Returns a consent url for the app to use to login.</td>
+</tr>
+<tr class="row-even"><td>users/me (redirect to :id)</td>
+<td>GET</td>
+<td>Gets the current user.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="data-structures">
+<h1>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="announcement">
+<h2>Announcement<a class="headerlink" href="#announcement" title="Permalink to this headline">¶</a></h2>
+<p>An announcement object.</p>
+<p>Properties:</p>
+<ul class="simple">
+<li>id: unique id for the announcement, same as that in the db</li>
+<li>title (alias: name): the title line, pretty straight forward</li>
+<li><dl class="first docutils">
+<dt>description: a string with the complete description for the</dt>
+<dd>announcement (basically the body)</dd>
+</dl>
+</li>
+<li>creator (alias: author, user): the user object of the creator</li>
+<li>approver: a user object that describes who approved an announcement</li>
+<li>startDate: the first day that the announcement is displayed</li>
+<li>endDate: the last day the announcement is displayed</li>
+<li>urgent: whether or not the announcement is urgent or not</li>
+<li>approved: a single digit integer displaying its approval status<ul>
+<li>0: pending approval</li>
+<li>1: approved</li>
+<li>2: denied by admin</li>
+<li>3: removed by author</li>
+</ul>
+</li>
+<li>timeSubmitted: The datetime of when the announcement was submitted</li>
+<li><dl class="first docutils">
+<dt>tags: (Tags[]): Returns an array of tag objects applied to the</dt>
+<dd>announcement</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>events: (Events[]): Returns an array of event objects applied to the</dt>
+<dd>announcement</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>deadlines: (Deadlines[]): Returns an array of the deadlines that are</dt>
+<dd>attached to the announcement</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="tag">
+<h2>Tag<a class="headerlink" href="#tag" title="Permalink to this headline">¶</a></h2>
+<p>A tag object</p>
+<p>Properties:</p>
+<ul class="simple">
+<li>id: unique ID for the applied tag</li>
+<li>name: display name for tag</li>
+<li>slug: the technical name for the tag</li>
+<li><dl class="first docutils">
+<dt>visible: single bit: whether the tag is visible when the announcement</dt>
+<dd>is displayed</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>minUserLevelAssign: single digit int: the minimum level that the user</dt>
+<dd>must be to be able to assign or approve the assignment of this
+tag</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>minUserLevelRequest: single digit int: the minimum level that the</dt>
+<dd>user must be to be to request that his/her announcement be
+assigned this tag</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>parentId (alias: parentID) if the tag is a child of another tag, the</dt>
+<dd>ID of the parent is put here, likely null for the moment</dd>
+</dl>
+</li>
+<li>isCritical: boolean that states whether the tag can be modified</li>
+</ul>
+</div>
+<div class="section" id="user">
+<h2>User<a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h2>
+<p>A user object.</p>
+<p>if a user has a rank higher than 1, they can change any email or user to
+a power level less than our equal to their own. if a user has a rank of
+1, they can set any user to level 0.</p>
+<ul class="simple">
+<li>id: number a unique id for the user</li>
+<li>name: the name of the user</li>
+<li>handle: the username of the user</li>
+<li>email: the email of the user</li>
+<li>rank: a single digit integer indicating the user’s permissions<ul>
+<li><dl class="first docutils">
+<dt>3: teacher: submit announcements, edit their own existing</dt>
+<dd>announcements</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>2: admin: teacher perms+approve/deny submitted announcements, edit</dt>
+<dd>any announcement, set urgent tag at will</dd>
+</dl>
+</li>
+<li>1: superAdmin: admin perms+ability to set emergency tag</li>
+<li><dl class="first docutils">
+<dt>0: maintenanceUser: superAdmin perms+maintenance panel w/</dt>
+<dd>diagnostics, and direct sql access (hopefully), making tags</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li>postCounts: object with number of posts that the user has made<ul>
+<li>approved: int of number of approved announcements</li>
+<li>unapproved: int of number of unapproved announcements</li>
+<li>denied: int of number of admin denied announcements</li>
+<li>removed: int of number of user self-removed announcements</li>
+<li>total: int of total number of announcements</li>
+</ul>
+</li>
+<li>lastLogin:</li>
+</ul>
+</div>
+<div class="section" id="event">
+<h2>Event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h2>
+<p>An event object (to be implemented)</p>
+<p>Properties:</p>
+<ul class="simple">
+<li>id: a unique id of the event</li>
+<li>title (alias: name): the title line of the event</li>
+<li>description: the description of the event</li>
+<li>announcementID the announcement ID of which the event is a child<ul>
+<li><dl class="first docutils">
+<dt>announcement: the announcement parent with the id of the above</dt>
+<dd>announcementId</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li>allDay: single bit determining whether the event is all day or not</li>
+<li>date: the date of the event.</li>
+<li>startTime: the start time of the event</li>
+<li>endTime: the end time of the event</li>
+</ul>
+</div>
+<div class="section" id="response">
+<h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
+<p>The response that is returned by the server from any endpoint.</p>
+<ul class="simple">
+<li>success: boolean returns true if successful, false if not</li>
+<li>error: string</li>
+</ul>
+</div>
+<div class="section" id="announcementresponse">
+<h2>AnnouncementResponse<a class="headerlink" href="#announcementresponse" title="Permalink to this headline">¶</a></h2>
+<p>(inherits Response)</p>
+<p>The response that is returned by the server when announcements are
+requested.</p>
+<p>Properties:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>response: announcement []: an array of announcement objects which are</dt>
+<dd>the actual announcements that are returned</dd>
+</dl>
+</li>
+<li>All Response properties</li>
+</ul>
+</div>
+<div class="section" id="eventresponse">
+<h2>EventResponse<a class="headerlink" href="#eventresponse" title="Permalink to this headline">¶</a></h2>
+<p>(inherits Response)</p>
+<p>The response that is returned by the server when events are requested.</p>
+<p>Properties:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>response: event []: an array of event objects which are the actual</dt>
+<dd>events that are returned</dd>
+</dl>
+</li>
+<li>All Response properties</li>
+</ul>
+</div>
+<div class="section" id="tagresponse">
+<h2>TagResponse<a class="headerlink" href="#tagresponse" title="Permalink to this headline">¶</a></h2>
+<p>(inherits Response)</p>
+<p>The response that is returned by the server when tags are requested.</p>
+<p>Properties:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>response: tag []: an array of tag objects which are the actual tags</dt>
+<dd>that are returned</dd>
+</dl>
+</li>
+<li>All Response properties</li>
+</ul>
+</div>
+</div>
+<div class="section" id="updateresponse">
+<h1>UpdateResponse<a class="headerlink" href="#updateresponse" title="Permalink to this headline">¶</a></h1>
+<p>(inherits Response)</p>
+<p>The response the is returned by the server when a POST is sent.</p>
+<ul class="simple">
+<li>affectedRows: returns the number of affected rows</li>
+<li>response: returns true for success, false for error</li>
+</ul>
+</div>
+<div class="section" id="links">
+<h1>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h1>
+<p>announcements/ (GET)</p>
+<p>Returns an AnnouncementResponse which returns all current announcements.</p>
+<p>if a quantity is given, that number of announcements is returned</p>
+<p>if a tagId is given, a list of announcement objects with that tag will
+be returned in the array</p>
+<p>if start and end dates are added, only announcements visible between the
+two dates (exclusive) are returned</p>
+<p>announcements (POST)</p>
+<p>Web app sends server a json announcement object, with a null id. Returns
+an UpdateResponse.</p>
+<p>Required: title, description, startDate, endDate, tags (ids or slugs)</p>
+<p>Assumed: userId</p>
+<p>Optional: events</p>
+<p>announcements/:id (GET)</p>
+<p>Gets an AnnouncementResponse with the announcement by id.</p>
+<p>announcements/:id (POST)</p>
+<p>Web app sends server a list of announcement properties and updated
+values. Returns an UpdateResponse.</p>
+<p>Optional: title, description, startDate, endDate</p>
+<p>Elevation Required: approved, urgent</p>
+<p>For updating events or tags, use the POST methods for
+/announcements/:id/events or /announcements/:id/tags. These often have
+an addXxxx/removeXxxx property to pass in that is an array of tag/event
+ids.</p>
+<p>users/login</p>
+<p>Logs in a user (or creates one if the email is not used before) based on
+the one-time token given</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Kevin Mo, Nicholas Lysek, Jeffrey Kaufman.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
