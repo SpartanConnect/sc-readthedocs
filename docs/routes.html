@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Spartan Connect 0.1.0 documentation</title>
+  <title>List of API Routes &mdash; Spartan Connect 0.1.0 documentation</title>
   
 
   
@@ -34,9 +33,11 @@
 
   
         <link rel="index" title="Index"
-              href="#"/>
+              href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Spartan Connect 0.1.0 documentation" href="index.html"/> 
+    <link rel="top" title="Spartan Connect 0.1.0 documentation" href="index.html"/>
+        <link rel="next" title="Announcements" href="announcements.html"/>
+        <link rel="prev" title="Introduction" href="intro.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -83,33 +84,16 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="original.html">API URL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="original.html#list-of-api-routes">List of API Routes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="original.html#data-structures">Data Structures</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="original.html#announcement">Announcement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="original.html#tag">Tag</a></li>
-<li class="toctree-l2"><a class="reference internal" href="original.html#user">User</a></li>
-<li class="toctree-l2"><a class="reference internal" href="original.html#event">Event</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">List of API Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="announcements.html">Announcements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tags.html">Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="users.html">Users</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="users.html#authentication">Authentication</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="original.html#responses">Responses</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="original.html#response">Response</a></li>
-<li class="toctree-l2"><a class="reference internal" href="original.html#announcementresponse">AnnouncementResponse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="original.html#eventresponse">EventResponse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="original.html#tagresponse">TagResponse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="original.html#updateresponse">UpdateResponse</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="original.html#links">Links</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="original.html#announcements-get">announcements/ (GET)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="original.html#announcements-post">announcements/ (POST)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="original.html#announcements-id-get">announcements/:id (GET)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="original.html#announcements-id-post">announcements/:id (POST)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="original.html#users-login">users/login</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
 </ul>
 
             
@@ -154,12 +138,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Index</li>
+      <li>List of API Routes</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/routes.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -171,11 +157,85 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="list-of-api-routes">
+<h1>List of API Routes<a class="headerlink" href="#list-of-api-routes" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="7%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Route</th>
+<th class="head">Method</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>announcements/</td>
+<td>GET</td>
+<td>Retrieves all announcements.</td>
+</tr>
+<tr class="row-odd"><td>announcements/</td>
+<td>POST</td>
+<td>Creates an announcement with given POST information.</td>
+</tr>
+<tr class="row-even"><td>announcements/current</td>
+<td>GET</td>
+<td>Retrieves all current announcements.</td>
+</tr>
+<tr class="row-odd"><td>announcements/:id</td>
+<td>GET</td>
+<td>Retrieves information on a certain announcement with given ID.</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>&#160;</td>
+<td>announcement/:id/events, tags, and deadlines are not
+included as they are already part of the
+announcement object.</td>
+</tr>
+<tr class="row-odd"><td>announcements/:id</td>
+<td>POST</td>
+<td>Updates an announcement with given POST information.</td>
+</tr>
+<tr class="row-even"><td>tags/</td>
+<td>GET</td>
+<td>Retrives all tags.</td>
+</tr>
+<tr class="row-odd"><td>tags/:id</td>
+<td>GET</td>
+<td>Retrieve information on a certain tag with given ID.</td>
+</tr>
+<tr class="row-even"><td>tags/:id/announcements</td>
+<td>GET</td>
+<td>Retrieves a list of announcements with a certain tag id.</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>GET</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>GET</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>GET</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>GET</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -185,6 +245,15 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="announcements.html" class="btn btn-neutral float-right" title="Announcements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
