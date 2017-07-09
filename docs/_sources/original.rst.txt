@@ -156,6 +156,7 @@ Response
 The response that is returned by the server from any endpoint.
 
 Properties:
+
 -  success: boolean returns true if successful, false if not
 -  error: string
 
